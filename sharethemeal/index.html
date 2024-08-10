@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Login</title>
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        body {
+            background-color: #f0f0f0; /* Light gray background color */
+        }
+        .background-image {
+            background-image: url('background.png'); /* Replace with the path to your image */
+            background-size: cover; /* Ensure the image covers the entire element */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            height: 100vh; /* Full viewport height */
+        }
+        .background-color {
+            background-color: #ffcc00; /* Yellow background color */
+            padding: 20px;
+            text-align: center;
+        }
+		
+    </style>
+
+</head>
+<body>
+<div class="background-image">
+<br><br><br><br><br>
+    <div class="container">
+	
+        <div class="form-container">
+            <center><h1>Login</h1>
+			<p>Together, we can make a bigger impact. Log in and share your meal to feed those in need!</p></center>
+            <form action="login.php" method="POST">
+                <label for="username">Username</label>
+                <input type="username" id="username" name="username" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Login</button>
+            </form>
+            <p>Don't have an account? <a href="register.html">Register here</a></p>
+        </div>
+    </div>
+</body>
+</html>

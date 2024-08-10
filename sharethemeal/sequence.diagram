@@ -1,0 +1,59 @@
+sequenceDiagram
+    actor User
+    participant UI as User Interface
+    participant Auth as Authentication System
+    participant DM as Donation Management
+    participant CM as Campaign Management
+    participant IT as Impact Tracking
+    participant DB as Database
+
+    User->>UI: Access system
+    UI->>Auth: Request login
+    Auth->>DB: Validate credentials
+    DB-->>Auth: Return validation result
+    Auth-->>UI: Login response
+
+    alt Successful login
+        User->>UI: Navigate to Donation Management
+        UI->>CM: Request campaign list
+        CM->>DB: Fetch campaigns
+        DB-->>CM: Return campaigns
+        CM-->>UI: Display campaigns
+
+        User->>UI: Select or create campaign
+        alt Create new campaign
+            User->>UI: Enter campaign details
+            UI->>CM: Create campaign
+            CM->>DB: Store campaign
+            DB-->>CM: Confirm creation
+            CM-->>UI: Display confirmation
+        end
+
+        User->>UI: Enter donation details
+        UI->>DM: Process donation
+        DM->>DB: Store donation
+        DB-->>DM: Confirm storage
+        DM-->>UI: Display confirmation
+
+        User->>UI: Navigate to Impact Tracking
+        UI->>IT: Request impact data
+        IT->>DB: Fetch impact data
+        DB-->>IT: Return impact data
+        IT-->>UI: Display impact
+
+        User->>UI: Navigate to Profile Management
+        UI->>Auth: Request user data
+        Auth->>DB: Fetch user data
+        DB-->>Auth: Return user data
+        Auth-->>UI: Display profile
+
+        User->>UI: Update profile or change password
+        UI->>Auth: Update data
+        Auth->>DB: Store updated data
+        DB-->>Auth: Confirm update
+        Auth-->>UI: Display confirmation
+
+        User->>UI: Logout
+        UI->>Auth: Process logout
+        Auth-->>UI: Confirm logout
+    end

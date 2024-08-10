@@ -1,0 +1,33 @@
+graph TD
+    A[Start] --> B{User Authenticated?}
+    B -->|No| C[Display Login/Register Page]
+    C --> D[User Enters Credentials]
+    D --> E{Credentials Valid?}
+    E -->|No| C
+    E -->|Yes| F[Display Homepage]
+    B -->|Yes| F
+
+    F --> G{User Action}
+    G --> H[Donation Management]
+    G --> I[Campaign Management]
+    G --> J[Impact Tracking]
+    G --> K[Profile Management]
+    G --> L[Logout]
+
+    H --> M[Select Campaign / Create New]
+    M --> N[Enter Donation Details]
+    N --> O[Process Payment]
+    O --> P[Record Donation]
+    P --> Q[View Donation History]
+
+    I --> R[View Campaigns]
+    I --> S[Add New Campaign]
+    I --> T[Join Existing Campaign]
+
+    J --> U[View Impact Data]
+
+    K --> V[View Profile]
+    K --> W[Update Profile / Change Password]
+
+    L --> X[End Session]
+    X --> A

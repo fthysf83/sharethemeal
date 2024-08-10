@@ -1,0 +1,55 @@
+graph TB
+    subgraph "User Interface"
+        UI[User Interface]
+        UI --> |Interacts with| NavBar[Navigation Bar]
+    end
+
+    subgraph "Business Logic"
+        AuthComp[Authentication Component]
+        DonationMgmt[Donation Management]
+        CampaignMgmt[Campaign Management]
+        ImpactTracking[Impact Tracking]
+        ProfileMgmt[Profile Management]
+        PaymentProcessor[Payment Processor]
+        LinkGenerator[Campaign Link Generator]
+    end
+
+    subgraph "Data Access Layer"
+        DAL[Data Access Layer]
+    end
+
+    subgraph "External Services"
+        PaymentGateway[Payment Gateway]
+        SocialMedia[Social Media APIs]
+    end
+
+    subgraph "Database"
+        DB[(Database)]
+    end
+
+    UI --> AuthComp
+    UI --> DonationMgmt
+    UI --> CampaignMgmt
+    UI --> ImpactTracking
+    UI --> ProfileMgmt
+
+    AuthComp --> DAL
+    DonationMgmt --> DAL
+    CampaignMgmt --> DAL
+    ImpactTracking --> DAL
+    ProfileMgmt --> DAL
+
+    DonationMgmt --> PaymentProcessor
+    PaymentProcessor --> PaymentGateway
+
+    CampaignMgmt --> LinkGenerator
+    LinkGenerator --> SocialMedia
+
+    DAL --> DB
+
+    classDef component fill:#f9f,stroke:#333,stroke-width:2px;
+    class AuthComp,DonationMgmt,CampaignMgmt,ImpactTracking,ProfileMgmt,PaymentProcessor,LinkGenerator component;
+    classDef ui fill:#ccf,stroke:#333,stroke-width:2px;
+    class UI,NavBar ui;
+    classDef external fill:#cfc,stroke:#333,stroke-width:2px;
+    class PaymentGateway,SocialMedia external;

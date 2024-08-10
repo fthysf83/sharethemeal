@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>User Registration</title>
+    <link rel="stylesheet" href="styles.css">
+	<style>
+        body {
+            background-color: #f0f0f0; /* Light gray background color */
+        }
+        .background-image {
+            background-image: url('background.png'); /* Replace with the path to your image */
+            background-size: cover; /* Ensure the image covers the entire element */
+            background-repeat: no-repeat; /* Prevent the image from repeating */
+            height: 100vh; /* Full viewport height */
+        }
+        .background-color {
+            background-color: #ffcc00; /* Yellow background color */
+            padding: 20px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+<div class="background-image">
+<br><br>
+    <div class="container">
+        <div class="form-container">
+            <center><h1>Register</h1>
+			<p>A single click can feed a child. Sign up and start sharing your meal today!</p></center>
+            <form action="register.php" method="POST">
+                <label for="full_name">Full Name</label>
+                <input type="text" id="full_name" name="full_name" required>
+                
+                <label for="nric">NRIC Number</label>
+                <input type="text" id="nric" name="nric" required>
+                
+                <label for="username">Username</label>
+                <input type="text" id="username" name="username" required>
+                
+                <label for="email">Email</label>
+                <input type="email" id="email" name="email" required>
+                
+                <label for="password">Password</label>
+                <input type="password" id="password" name="password" required>
+                
+                <button type="submit">Register</button>
+            </form>
+            <p>Already have an account? <a href="index.html">Login here</a></p>
+        </div>
+    </div>
+</body>
+</html>
